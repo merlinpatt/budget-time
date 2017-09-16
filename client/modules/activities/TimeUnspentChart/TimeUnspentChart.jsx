@@ -9,7 +9,7 @@ import WeekUnspentBar from './WeekUnspentBar.container';
 
 const getChartHeight = (activityCount) => {
   const ACTIVITY_HEIGHT = 4.8;
-  const FORM_HEIGHT = 16.5;
+  const FORM_HEIGHT = 16.8;
   const HEADER_HEIGHT = 3.7;
   const FIXED_HEIGHT = FORM_HEIGHT + HEADER_HEIGHT;
   const REM_TO_PX = 10;
@@ -59,7 +59,7 @@ const loadingStyle = {
   position: 'absolute',
   top: 0,
   right: 0,
-  bottom: '17.5rem',
+  bottom: '17.8rem',
   left: 0,
   alignItems: 'center',
   justifyContent: 'center',
