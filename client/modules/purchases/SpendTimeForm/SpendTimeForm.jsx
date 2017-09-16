@@ -8,8 +8,7 @@ import {css, withStyles, styleType, themeType} from '/client/styles/withStyles';
 
 import ActivitySelect from '/client/modules/activities/ActivitySelect';
 
-import HoursInput from './HoursInput';
-import MinutesInput from './MinutesInput';
+import TimeInput from './TimeInput';
 
 const SpendTimeForm = ({styles}) => {
   const spendTime = (event) => {
@@ -31,10 +30,10 @@ const SpendTimeForm = ({styles}) => {
       <div {...css(styles.formInner)} >
         <ActivitySelect />
         <div {...css(styles.time)}>
-          <HoursInput />
-          <MinutesInput />
+          <TimeInput name="hours" max={100} />
+          <TimeInput name="minutes" max={59} step={10} />
         </div>
-        <button {...css(styles.button)}>
+        <button {...css(styles.button)} type="submit">
           Spend
         </button>
       </div>
