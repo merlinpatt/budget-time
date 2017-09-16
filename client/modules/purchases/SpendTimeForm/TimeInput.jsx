@@ -29,7 +29,7 @@ class TimeInput extends React.Component {
 
   changeValue = (event) => {
     const input = event.target;
-    const value = input.value;
+    const value = Number.parseInt(input.value, 10);
     this.setState({value});
   }
 
