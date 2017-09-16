@@ -51,7 +51,15 @@ SpendTimeForm.propTypes = forbidExtraProps({
 export default withStyles(({colors, units}) => ({
   button: {
     width: '100%',
+    border: 0,
     padding: units(1),
+    fontSize: units(2),
+    cursor: 'pointer',
+    transitions: 'opacity 0.3s',
+
+    ':hover': {
+      opacity: 0.8,
+    },
   },
 
   form: {
@@ -60,7 +68,7 @@ export default withStyles(({colors, units}) => ({
     right: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: colors.black,
+    background: colors.black,
   },
 
   formInner: {

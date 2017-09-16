@@ -27,43 +27,38 @@ class TimeInput extends React.Component {
     this.setState({value: value - step <= min ? min : value - step});
   }
 
-  changeValue = (event) => {
-    const input = event.target;
-    const value = Number.parseInt(input.value, 10);
-    this.setState({value});
-  }
-
   render() {
-    const {min, max, name, step, styles} = this.props;
+    const {min, max, name, step, styles, theme: {colors}} = this.props;
     const {value} = this.state;
 
+    const color = name === "hours" ? colors.green : colors.grey;
+    const backgroundStyle = {background: color};
+    const colorStyle = {color};
+
     return (
-      <div>
-        <Row>
+      <div {...css(styles.row)}>
+        <label {...css(styles.label, colorStyle)} htmlFor={name}>
+          {name}
           <input
-            {...css(styles.input)}
+            {...css(styles.input, colorStyle)}
             id={name}
             name={name}
+            disabled={true}
             min={min}
             max={max}
             step={step}
             value={value}
             type="number"
-            onChange={this.changeValue}
           />
-          <div {...css(styles.buttons)}>
-            <button onClick={this.increase}>
-              +
-            </button>
-            <button onClick={this.decrease}>
-              -
-            </button>
-          </div>
-        </Row>
-
-        <label {...css(styles.label)} htmlFor={name}>
-          {name}
         </label>
+        <div {...css(styles.buttons)}>
+          <button onClick={this.increase} {...css(styles.button, backgroundStyle)}>
+            +
+          </button>
+          <button onClick={this.decrease} {...css(styles.button, backgroundStyle)}>
+            -
+          </button>
+        </div>
       </div>
     );
   }
@@ -82,11 +77,24 @@ TimeInput.propTypes = forbidExtraProps({
 
 TimeInput.defaultProps = {
   min: 0,
-  max: Number.MAX_SAFE_INTEGER,
+  max: 100,
   step: 1,
 };
 
-export default withStyles(({units}) => ({
+export default withStyles(({colors, units}) => ({
+  button: {
+    border: 0,
+    padding: `${units(0.2)} ${units(2)}`,
+    boxShadow: `inset 0 -1px ${colors.black}`,
+    font: `bold ${units(2.2)} Arial`,
+    cursor: 'pointer',
+    transitions: 'opacity 0.3s',
+
+    ':hover': {
+      opacity: 0.8,
+    },
+  },
+
   buttons: {
     display: 'flex',
     flexDirection: 'column',
@@ -94,13 +102,28 @@ export default withStyles(({units}) => ({
 
   input: {
     display: 'block',
-    padding: units(1),
-    margin: '0 auto',
+    width: '100%',
+    padding: 0,
+    border: 0,
+    background: colors.black,
+    font: `bold ${units(3)} Arial`,
+    textAlign: 'center',
+    pointerEvents: 'none',
+
+    '::-webkit-inner-spin-button': {
+      '-webkit-appearance': 'none',
+    },
   },
 
   label: {
     display: 'block',
+    font: `bold ${units(1.5)} Arial`,
     textAlign: 'center',
     textTransform: 'capitalize',
+  },
+
+  row: {
+    display: 'flex',
+    width: '50%',
   },
 }))(TimeInput);

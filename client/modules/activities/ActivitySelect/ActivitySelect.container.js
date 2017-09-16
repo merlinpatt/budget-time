@@ -17,4 +17,4 @@ const composer = (noProps, onData) => {
   }
 };
 
-export default composeWithTracker(composer)(ActivitySelect);
+export default composeWithTracker(composer)(ActivitySelect, ActivitySelect.LoadingState);

@@ -7,6 +7,8 @@ const theme = {
   },
   colors: {
     black: 'rgb(0, 0, 0)',
+    grey: 'rgb(99, 99, 99)',
+    green: 'rgb(127, 165, 127)',
     white: 'rgb(255, 255, 255)',
   },
   fonts: {},

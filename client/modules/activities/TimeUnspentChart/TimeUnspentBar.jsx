@@ -64,7 +64,7 @@ TimeUnspentBar.LoadingState.propTypes = forbidExtraProps({
   time: PropTypes.number.isRequired, // eslint-disable-line react/no-unused-prop-types
 });
 
-export default withStyles(({units}) => ({
+export default withStyles(({colors, units}) => ({
   bar: {
     position: 'relative',
     marginBottom: units(1),
@@ -76,11 +76,11 @@ export default withStyles(({units}) => ({
     zIndex: -1,
     top: 0,
     height: '100%',
-    background: 'rgb(99, 99, 99)',
+    background: colors.grey,
   },
 
   progressEven: {
-    background: 'rgb(127, 165, 127)',
+    background: colors.green,
   },
 
   text: {

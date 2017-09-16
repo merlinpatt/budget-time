@@ -26,9 +26,19 @@ ActivitySelect.propTypes = forbidExtraProps({
   theme: themeType.isRequired,
 });
 
-export default withStyles(({units}) => ({
+const withStylesContainer = withStyles(({colors, units}) => ({
   select: {
     width: '100%',
     padding: units(1),
+    background: colors.black,
+    color: colors.white,
+    border: `1px solid ${colors.white}`,
+    fontSize: units(2),
   },
-}))(ActivitySelect);
+}));
+
+ActivitySelect.LoadingState = withStylesContainer(({styles}) =>
+  <select {...css(styles.select)} disabled={true}><option>Finding activities...</option></select>
+);
+
+export default withStylesContainer(ActivitySelect);

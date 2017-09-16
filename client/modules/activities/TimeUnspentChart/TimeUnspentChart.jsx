@@ -7,9 +7,10 @@ import {css} from '/client/styles/withStyles';
 import ActivityUnspentBar from './ActivityUnspentBar.container';
 import WeekUnspentBar from './WeekUnspentBar.container';
 
+const FORM_HEIGHT = 17.9;
+
 const getChartHeight = (activityCount) => {
   const ACTIVITY_HEIGHT = 4.8;
-  const FORM_HEIGHT = 16.8;
   const HEADER_HEIGHT = 3.7;
   const FIXED_HEIGHT = FORM_HEIGHT + HEADER_HEIGHT;
   const REM_TO_PX = 10;
@@ -54,12 +55,13 @@ TimeUnspentChart.LoadingState = () => (
 
 TimeUnspentChart.LoadingState.displayName = 'TimeUnspentChart.LoadingState';
 
+const PADDING = 1;
 const loadingStyle = {
   display: 'flex',
   position: 'absolute',
   top: 0,
   right: 0,
-  bottom: '17.8rem',
+  bottom: `${FORM_HEIGHT + PADDING}rem`,
   left: 0,
   alignItems: 'center',
   justifyContent: 'center',
