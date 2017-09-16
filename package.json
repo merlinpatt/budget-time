@@ -1,0 +1,48 @@
+{
+  "name": "budget-time",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "meteor --settings settings/local.json",
+    "lint:css": "stylelint 'client/styles/**/*.css'",
+    "lint:js": "eslint --ext=js,jsx .",
+    "lint:size": "meteor --settings settings/local.json --production --extra-packages bundle-visualizer",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "airbnb-prop-types": "^2.8.1",
+    "aphrodite": "^1.2.3",
+    "babel-runtime": "^6.25.0",
+    "bcrypt": "^1.0.2",
+    "date-fns": "^1.28.5",
+    "meteor-node-stubs": "^0.2.11",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-komposer": "github:classtracks/react-komposer",
+    "react-mounter": "^1.2.0",
+    "react-with-styles": "^1.4.0",
+    "react-with-styles-interface-aphrodite": "^1.2.0",
+    "simpl-schema": "^0.3.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-import-resolver-meteor": "^0.4.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.2.0",
+    "eslint-plugin-react-with-styles": "^1.1.1",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
+    "stylelint-order": "^0.6.0"
+  }
+}
